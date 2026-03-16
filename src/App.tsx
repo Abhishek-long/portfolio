@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-screen-2xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold tracking-tighter text-white">AG.</a>
         
         {/* Desktop Nav */}
@@ -73,53 +73,57 @@ const Navbar = () => {
 };
 
 const Hero = () => (
-  <section className="min-h-screen flex items-center pt-20 px-6">
-    <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <section className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+    {/* Decorative Background Elements */}
+    <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    
+    <div className="max-w-screen-2xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="inline-block px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold mb-6 uppercase tracking-widest">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-blue-600/20 text-blue-400 text-xs font-bold mb-8 uppercase tracking-widest border border-blue-600/30">
           Available for Hire
         </span>
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none mb-6 text-white">
+        <h1 className="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.9] mb-8 text-white">
           {PERSONAL_INFO.name.split(' ')[0]} <br />
-          <span className="text-slate-500">{PERSONAL_INFO.name.split(' ')[1]}</span>
+          <span className="text-slate-600">{PERSONAL_INFO.name.split(' ')[1]}</span>
         </h1>
-        <p className="text-xl text-slate-400 mb-8 max-w-md leading-relaxed">
+        <p className="text-2xl text-slate-400 mb-10 max-w-xl leading-relaxed font-light">
           {PERSONAL_INFO.tagline}
         </p>
-        <div className="flex flex-wrap gap-4">
-          <a href="#contact" className="px-8 py-4 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all flex items-center gap-2">
-            Let's Talk <Send size={18} />
+        <div className="flex flex-wrap gap-6">
+          <a href="#contact" className="px-10 py-5 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all flex items-center gap-3 shadow-lg shadow-blue-600/20">
+            Let's Talk <Send size={20} />
           </a>
-          <a href={PERSONAL_INFO.resume} target="_blank" rel="noreferrer" className="px-8 py-4 border border-slate-800 rounded-full font-medium text-white hover:bg-slate-900 transition-all flex items-center gap-2">
-            Resume <Download size={18} />
+          <a href={PERSONAL_INFO.resume} target="_blank" rel="noreferrer" className="px-10 py-5 border border-slate-800 rounded-full font-bold text-white hover:bg-slate-900 transition-all flex items-center gap-3">
+            Resume <Download size={20} />
           </a>
         </div>
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative"
+        className="relative lg:justify-self-end"
       >
-        <div className="aspect-square rounded-3xl overflow-hidden bg-slate-900 border border-slate-800">
+        <div className="aspect-[4/5] w-full max-w-[500px] rounded-[40px] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
           <img 
             src={PERSONAL_INFO.profilePhoto} 
             alt={PERSONAL_INFO.name} 
-            className="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-700"
+            className="w-full h-full object-cover grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-1000"
             referrerPolicy="no-referrer"
           />
         </div>
-        <div className="absolute -bottom-6 -right-6 bg-slate-900 p-6 rounded-2xl shadow-xl border border-slate-800 hidden md:block">
-          <div className="flex gap-4">
-            <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="p-3 bg-slate-800 text-white rounded-xl hover:bg-white hover:text-black transition-all">
-              <Github size={20} />
+        <div className="absolute -bottom-8 -left-8 bg-slate-900/90 backdrop-blur-xl p-8 rounded-[32px] shadow-2xl border border-slate-800 hidden md:block">
+          <div className="flex gap-6">
+            <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="p-4 bg-slate-800 text-white rounded-2xl hover:bg-white hover:text-black transition-all">
+              <Github size={24} />
             </a>
-            <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="p-3 bg-slate-800 text-white rounded-xl hover:bg-blue-600 transition-all">
-              <Linkedin size={20} />
+            <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="p-4 bg-slate-800 text-white rounded-2xl hover:bg-blue-600 transition-all">
+              <Linkedin size={24} />
             </a>
           </div>
         </div>
@@ -137,8 +141,8 @@ const SectionHeading = ({ title, subtitle }: { title: string, subtitle?: string 
 );
 
 const About = () => (
-  <section id="about" className="py-24 px-6 bg-slate-900/50">
-    <div className="max-w-7xl mx-auto">
+  <section id="about" className="py-32 px-6 bg-slate-900/50">
+    <div className="max-w-screen-2xl mx-auto">
       <div className="grid md:grid-cols-2 gap-16">
         <SectionHeading 
           title="About Me" 
@@ -165,8 +169,8 @@ const About = () => (
 );
 
 const Education = () => (
-  <section id="education" className="py-24 px-6">
-    <div className="max-w-7xl mx-auto">
+  <section id="education" className="py-32 px-6">
+    <div className="max-w-screen-2xl mx-auto">
       <SectionHeading title="Education" subtitle="My academic journey and qualifications." />
       <div className="space-y-12">
         {EDUCATION.map((edu, index) => (
@@ -199,8 +203,8 @@ const Education = () => (
 );
 
 const Skills = () => (
-  <section id="skills" className="py-24 px-6 bg-slate-900 text-white">
-    <div className="max-w-7xl mx-auto">
+  <section id="skills" className="py-32 px-6 bg-slate-900 text-white">
+    <div className="max-w-screen-2xl mx-auto">
       <div className="mb-16">
         <h2 className="text-4xl font-bold tracking-tighter mb-4">Skills & Expertise</h2>
         <div className="h-1 w-20 bg-blue-600 mt-6"></div>
@@ -232,8 +236,8 @@ const Skills = () => (
 );
 
 const Projects = () => (
-  <section id="projects" className="py-24 px-6">
-    <div className="max-w-7xl mx-auto">
+  <section id="projects" className="py-32 px-6">
+    <div className="max-w-screen-2xl mx-auto">
       <SectionHeading title="Selected Projects" subtitle="A showcase of my recent work in web development and AI." />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {PROJECTS.map((project, index) => (
@@ -300,8 +304,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-slate-900/50">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="py-32 px-6 bg-slate-900/50">
+      <div className="max-w-screen-2xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
             <SectionHeading title="Get In Touch" subtitle="Have a project in mind? Let's build something amazing together." />
@@ -393,8 +397,8 @@ const Contact = () => {
 };
 
 const Footer = () => (
-  <footer className="py-12 px-6 border-t border-slate-800">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+  <footer className="py-16 px-6 border-t border-slate-800">
+    <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div>
         <h2 className="text-2xl font-bold tracking-tighter mb-2 text-white">Abhishek Giri</h2>
         <p className="text-slate-500 text-sm">© 2026 All Rights Reserved.</p>
