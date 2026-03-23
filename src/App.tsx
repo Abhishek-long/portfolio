@@ -5,7 +5,11 @@ import { PERSONAL_INFO, EDUCATION, SKILLS, PROJECTS, CERTIFICATES, ACHIEVEMENTS 
 import axios from 'axios';
 
 // --- Components ---
-
+const getDirectLink = (url) => {
+  if (!url) return '';
+  const id = url.includes('/d/') ? url.split('/d/')[1]?.split('/')[0] : url;
+  return `https://lh3.googleusercontent.com/d/${id}`;
+};
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -112,11 +116,11 @@ const Hero = () => (
       >
         <div className="aspect-[4/5] w-full max-w-[500px] rounded-[40px] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
           <img 
-            src={PERSONAL_INFO.profilePhoto} 
-            alt={PERSONAL_INFO.name} 
-            className="w-full h-full object-cover grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-1000"
-            referrerPolicy="no-referrer"
-          />
+  src={getDirectLink(PERSONAL_INFO.profilePhoto)} 
+  alt={PERSONAL_INFO.name} 
+  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+  referrerPolicy="no-referrer"
+/>
         </div>
         <div className="absolute -bottom-8 -left-8 bg-slate-900/90 backdrop-blur-xl p-8 rounded-[32px] shadow-2xl border border-slate-800 hidden md:block">
           <div className="flex gap-6">
