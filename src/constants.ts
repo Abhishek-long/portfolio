@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   linkedin: "https://www.linkedin.com/in/abhishek-giri-0b442528a/",
   location: "Jalandhar, Punjab",
   resume: "https://drive.google.com/file/d/1fgOBog7pSOOh_9YIVvnQuOCmcCfMk8JZ/view?usp=sharing",
-  profilePhoto: "https://picsum.photos/seed/abhishek/400/400"
+  profilePhoto: "https://drive.google.com/file/d/1c7hrM1--Xw23bvPC2jyL7ckOHxv-ijBM/view?usp=sharing"
 };
 
 export const EDUCATION = [
