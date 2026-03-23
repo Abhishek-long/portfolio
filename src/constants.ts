@@ -73,15 +73,15 @@ export const PROJECTS = [
 export const CERTIFICATES = [
   {
     name: "Data Structure and Algorithm using Java Programming",
-    issuer: "Infosys Springboard",
+    issuer: "CipherSchool",
     date: "October 2025",
-    downloadUrl: "https://drive.google.com/file/d/1XrLLIUtkHWx7VlNUUiEQLjL_ihQFicxa/view?usp=sharing"
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1XrLLIUtkHWx7VlNUUiEQLjL_ihQFicxa"
   },
   {
     name: "ChatGPT-4 Prompt Engineering",
     issuer: "Infosys Springboard",
     date: "August 2025",
-    downloadUrl: "https://drive.google.com/file/d/1JeeWIRenax8qRBKiosD5J2TMfo7-HxsI/view?usp=sharing"
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1JeeWIRenax8qRBKiosD5J2TMfo7-HxsI"
   },
   {
     name: "Master Generative AI & Generative AI tools",
@@ -93,7 +93,7 @@ export const CERTIFICATES = [
     name: "Computational Theory: Language Principle & Finite Automata Theory",
     issuer: "Infosys Springboard",
     date: "August 2025",
-    downloadUrl: "https://drive.google.com/file/d/1aOiRrq3C5TYtsjf4O44M4SZKQXm4OOXs/view?usp=sharing"
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1aOiRrq3C5TYtsjf4O44M4SZKQXm4OOXs"
   }
 ];
 
