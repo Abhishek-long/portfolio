@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/Abhishek-long",
   linkedin: "https://www.linkedin.com/in/abhishek-giri-0b442528a/",
   location: "Jalandhar, Punjab",
-  resume: "https://drive.google.com/file/d/1Ixv0lMzIq1ifKKZ49sVAkSDklPSw4KxL/view?usp=sharing",
+  resume: "https://drive.google.com/file/d/1fgOBog7pSOOh_9YIVvnQuOCmcCfMk8JZ/view?usp=sharing",
   profilePhoto: "https://picsum.photos/seed/abhishek/400/400"
 };
 
@@ -50,15 +50,15 @@ export const PROJECTS = [
     tech: ["React.js", "Node.js", "MongoDB", "Express.js", "Git"],
     github: "https://github.com/Abhishek-long",
     demo: "#",
-    image: "https://picsum.photos/seed/quality/600/400"
+    image: "https://lh3.googleusercontent.com/d/1YskJgfpSeqAaEIBdDJN6vkuDoTb_XCe7"
   },
   {
     title: "MedicareAI",
     description: "AI-Powered Healthcare Platform providing fast, accessible AI-driven health analysis and personalized prescription recommendations. Features secure authentication and live location tracking.",
     tech: ["Next.js", "TypeScript", "MongoDB", "NextAuth 2.0", "Geoapify API"],
     github: "https://github.com/Abhishek-long",
-    demo: "#",
-    image: "https://picsum.photos/seed/medicare/600/400"
+    demo: "https://medi-health-ai.vercel.app",
+    image: "https://lh3.googleusercontent.com/d/1iDS2LhG_ltMXJx1zUZDgfX4c5g5UrZMt"
   },
   {
     title: "AI Chatbot Platform",
@@ -66,7 +66,7 @@ export const PROJECTS = [
     tech: ["React.js", "Node.js", "Express.js", "JWT", "REST APIs"],
     github: "https://github.com/Abhishek-long",
     demo: "#",
-    image: "https://picsum.photos/seed/chatbot/600/400"
+    image: "https://lh3.googleusercontent.com/d/1BMZXAfwIeKsu8U95_GlZ2gdRybnJGTHS"
   }
 ];
 
@@ -74,22 +74,26 @@ export const CERTIFICATES = [
   {
     name: "Data Structure and Algorithm using Java Programming",
     issuer: "Infosys Springboard",
-    date: "October 2025"
+    date: "October 2025",
+    downloadUrl: "https://drive.google.com/file/d/1XrLLIUtkHWx7VlNUUiEQLjL_ihQFicxa/view?usp=sharing"
   },
   {
     name: "ChatGPT-4 Prompt Engineering",
     issuer: "Infosys Springboard",
-    date: "August 2025"
+    date: "August 2025",
+    downloadUrl: "https://drive.google.com/file/d/1JeeWIRenax8qRBKiosD5J2TMfo7-HxsI/view?usp=sharing"
   },
   {
     name: "Master Generative AI & Generative AI tools",
     issuer: "Infosys Springboard",
-    date: "August 2025"
+    date: "August 2025",
+    downloadUrl: "/path-to-your-pdf/cert.pdf"
   },
   {
     name: "Computational Theory: Language Principle & Finite Automata Theory",
     issuer: "Infosys Springboard",
-    date: "August 2025"
+    date: "August 2025",
+    downloadUrl: "https://drive.google.com/file/d/1aOiRrq3C5TYtsjf4O44M4SZKQXm4OOXs/view?usp=sharing"
   }
 ];
 
@@ -97,7 +101,31 @@ export const ACHIEVEMENTS = [
   {
     title: "National Rank Hackathon - Codeclash 2.0",
     description: "Ranked under 10 out of 4000+ teams in the hackathon held at Google Office, Gurugram.",
-    date: "2024",
-    org: "Google Office / Gurugram"
+    date: "2025",
+    org: "Google Office / Gurugram",
+    downloadUrl: "/path-to-your-pdf/achievement.pdf"
+    
+  }
+];
+export const EXPERIENCE = [
+  {
+    role: "Senior Full Stack Engineer",
+    company: "TechNova Solutions",
+    duration: "2024 - Present",
+    highlights: [
+      "Architected a microservices-based dashboard serving 50k+ daily users.",
+      "Optimized React bundle sizes by 40% using code-splitting and tree-shaking.",
+      "Led a team of 4 developers to deliver a cross-platform mobile app."
+    ]
+  },
+  {
+    role: "Frontend Developer",
+    company: "Creative Pulse Agency",
+    duration: "2022 - 2024",
+    highlights: [
+      "Built immersive GSAP-driven landing pages for Fortune 500 clients.",
+      "Implemented a custom UI library used across 12 different projects.",
+      "Reduced CSS bloat by 60% by migrating to Tailwind CSS."
+    ]
   }
 ];

@@ -21,13 +21,15 @@ const Navbar = () => {
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Certificates', href: '#certificates' },
+    { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-screen-2xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold tracking-tighter text-white">AG.</a>
+        <a href="#" className="text-2xl font-bold tracking-tighter text-white">AG</a>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-8">
@@ -39,7 +41,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
@@ -74,7 +76,6 @@ const Navbar = () => {
 
 const Hero = () => (
   <section className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
-    {/* Decorative Background Elements */}
     <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     
@@ -270,10 +271,111 @@ const Projects = () => (
                 <a href={project.github} target="_blank" rel="noreferrer" className="p-2 bg-slate-800 text-white rounded-lg hover:bg-blue-600 transition-all">
                   <Github size={18} />
                 </a>
-                <a href={project.demo} className="p-2 bg-slate-800 text-white rounded-lg hover:bg-blue-600 transition-all">
+                <a 
+                  href={project.demo} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  onClick={(e) => project.demo === '#' && e.preventDefault()}
+                  className="p-2 bg-slate-800 text-white rounded-lg hover:bg-blue-600 transition-all"
+                >
                   <ExternalLink size={18} />
                 </a>
               </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Certificates = () => (
+  <section id="certificates" className="py-32 px-6 bg-slate-900">
+    <div className="max-w-screen-2xl mx-auto">
+      <SectionHeading title="Certifications" subtitle="Professional development and technical certifications." />
+      <div className="grid md:grid-cols-2 gap-6">
+        {CERTIFICATES.map((cert, index) => (
+          <motion.div 
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="p-8 rounded-3xl bg-slate-800 border border-slate-700 hover:border-blue-500 transition-all flex items-center justify-between gap-6 group"
+          >
+            <div className="flex items-start gap-6">
+              <div className="p-4 bg-blue-600/10 text-blue-500 rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <Award size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1">{cert.name}</h3>
+                <p className="text-slate-400 font-medium">{cert.issuer}</p>
+                <p className="text-sm text-slate-500 mt-2 font-bold uppercase tracking-widest">{cert.date}</p>
+              </div>
+            </div>
+            
+            {/* Download Button */}
+            {cert.downloadUrl && (
+              <a 
+                href={cert.downloadUrl} 
+                download 
+                target="_blank" 
+                rel="noreferrer"
+                className="p-4 bg-slate-700 text-slate-300 rounded-2xl hover:bg-blue-600 hover:text-white transition-all"
+                title="Download Certificate"
+              >
+                <Download size={20} />
+              </a>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Achievements = () => (
+  <section id="achievements" className="py-32 px-6">
+    <div className="max-w-screen-2xl mx-auto">
+      <SectionHeading title="Achievements" subtitle="Milestones and recognitions in my professional journey." />
+      <div className="space-y-6">
+        {ACHIEVEMENTS.map((ach, index) => (
+          <motion.div 
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all flex flex-col md:flex-row justify-between items-start md:items-center gap-6 group"
+          >
+            <div className="flex items-start gap-6">
+              <div className="p-4 bg-yellow-600/10 text-yellow-500 rounded-2xl group-hover:bg-yellow-500 group-hover:text-white transition-all">
+                <Trophy size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">{ach.title}</h3>
+                <p className="text-slate-400 max-w-2xl">{ach.description}</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+              <div className="text-right">
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-1">{ach.date}</p>
+                <p className="text-blue-500 font-medium">{ach.org}</p>
+              </div>
+              
+              {/* Download Button */}
+              {ach.downloadUrl && (
+                <a 
+                  href={ach.downloadUrl} 
+                  download 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="p-4 bg-slate-800 text-slate-400 rounded-2xl hover:bg-blue-600 hover:text-white transition-all"
+                  title="Download Proof"
+                >
+                  <Download size={20} />
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
@@ -351,7 +453,7 @@ const Contact = () => {
                     value={formState.name}
                     onChange={(e) => setFormState({...formState, name: e.target.value})}
                     className="w-full px-6 py-4 bg-slate-800 text-white rounded-2xl border-none focus:ring-2 focus:ring-blue-600 transition-all"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -362,7 +464,7 @@ const Contact = () => {
                     value={formState.email}
                     onChange={(e) => setFormState({...formState, email: e.target.value})}
                     className="w-full px-6 py-4 bg-slate-800 text-white rounded-2xl border-none focus:ring-2 focus:ring-blue-600 transition-all"
-                    placeholder="john@example.com"
+                    placeholder="Enter your Email"
                   />
                 </div>
               </div>
@@ -400,8 +502,8 @@ const Footer = () => (
   <footer className="py-16 px-6 border-t border-slate-800">
     <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div>
-        <h2 className="text-2xl font-bold tracking-tighter mb-2 text-white">Abhishek Giri</h2>
-        <p className="text-slate-500 text-sm">© 2026 All Rights Reserved.</p>
+        <h2 className="text-2xl font-bold tracking-tighter mb-2 text-white">{PERSONAL_INFO.name}</h2>
+        <p className="text-slate-500 text-sm">© {new Date().getFullYear()} All Rights Reserved.</p>
       </div>
       <div className="flex gap-6">
         <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-colors">
@@ -428,6 +530,8 @@ export default function App() {
         <Education />
         <Skills />
         <Projects />
+        <Certificates />
+        <Achievements />
         <Contact />
       </main>
       <Footer />
