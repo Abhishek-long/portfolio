@@ -133,31 +133,98 @@ const DevContactFlash = ({ open, onClose }) => {
 
 const Hero = ({ onContactClick }) => {
   const parts = PERSONAL_INFO.name.split(' ');
+
   return (
     <section className="relative min-h-screen flex items-center pt-24 px-10 overflow-hidden bg-slate-950">
+      
+      {/* Grid Background */}
       <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:50px_50px]" />
+
       <div className="max-w-screen-2xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
-        <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
+        
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-10">
-             <ShieldCheck size={14}/> SYSTEM_PROTOCOL: 0.2.6
+            <ShieldCheck size={14} /> SYSTEM_PROTOCOL: 0.2.6
           </div>
+
           <h1 className="text-[clamp(3.5rem,10vw,8.5rem)] font-black tracking-tighter leading-[1.1] mb-8 text-white uppercase italic flex flex-col pb-10">
             <span className="text-white">{parts[0]}</span>
             <span className="text-slate-800">{parts.slice(1).join(' ')}</span>
           </h1>
-          <p className="text-xl text-slate-400 mb-12 max-w-xl italic border-l-2 border-blue-600/30 pl-8 leading-relaxed font-light">{PERSONAL_INFO.tagline}</p>
+
+          <p className="text-xl text-slate-400 mb-12 max-w-xl italic border-l-2 border-blue-600/30 pl-8 leading-relaxed font-light">
+            {PERSONAL_INFO.tagline}
+          </p>
+
           <div className="flex flex-wrap gap-6">
-            <button onClick={onContactClick} className="px-12 py-5 bg-blue-600 text-white rounded-full font-black uppercase tracking-widest text-[10px] shadow-[0_0_20px_blue] hover:bg-blue-700 active:scale-95 transition-all">Initiate Contact</button>
-            <AnimatedBorderButton href={PERSONAL_INFO.resume}>Download_Resume</AnimatedBorderButton>
+            <button
+              onClick={onContactClick}
+              className="px-12 py-5 bg-blue-600 text-white rounded-full font-black uppercase tracking-widest text-[10px] shadow-[0_0_20px_blue] hover:bg-blue-700 active:scale-95 transition-all"
+            >
+              Initiate Contact
+            </button>
+
+            <AnimatedBorderButton href={PERSONAL_INFO.resume}>
+              Download_Resume
+            </AnimatedBorderButton>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative lg:justify-self-end w-full max-w-[500px]">
-          <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden border-2 border-white/5 bg-slate-900 shadow-2xl relative group">
-             <img src={getDirectLink(PERSONAL_INFO.profilePhoto)} className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" />
-             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-80" />
-             <motion.div animate={{ y: ['0%', '100%', '0%'] }} transition={{ duration: 4, repeat: Infinity }} className="absolute inset-x-0 h-px bg-blue-500/50 shadow-[0_0_15px_blue] z-20" />
-          </div>
-        </motion.div>
+
+        {/* RIGHT IMAGE */}
+     <motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  className="relative lg:justify-self-end w-full max-w-[500px]"
+>
+
+  {/* IMAGE CARD */}
+  <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden border-2 border-white/5 bg-slate-900 shadow-2xl relative group">
+
+    <img
+      src={getDirectLink(PERSONAL_INFO.profilePhoto)}
+      alt={PERSONAL_INFO.name}
+      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+      referrerPolicy="no-referrer"
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-80" />
+
+    <motion.div
+      animate={{ y: ['0%', '100%', '0%'] }}
+      transition={{ duration: 4, repeat: Infinity }}
+      className="absolute inset-x-0 h-px bg-blue-500/50 shadow-[0_0_15px_blue] z-20"
+    />
+  </div>
+
+  {/* 🔥 SOCIAL ICONS (OUTSIDE now) */}
+  <div className="absolute bottom-[-20px] left-[-20px] bg-slate-900/90 backdrop-blur-xl p-4 rounded-2xl shadow-xl border border-white/10 flex gap-4 z-30">
+
+    <a
+      href={PERSONAL_INFO.github}
+      target="_blank"
+      rel="noreferrer"
+      className="p-3 bg-slate-800 text-white rounded-xl hover:bg-white hover:text-black hover:scale-110 transition-all"
+    >
+      <Github size={20} />
+    </a>
+
+    <a
+      href={PERSONAL_INFO.linkedin}
+      target="_blank"
+      rel="noreferrer"
+      className="p-3 bg-slate-800 text-white rounded-xl hover:bg-blue-600 hover:scale-110 transition-all"
+    >
+      <Linkedin size={20} />
+    </a>
+
+  </div>
+
+</motion.div>
       </div>
     </section>
   );
