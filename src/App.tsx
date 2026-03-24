@@ -185,21 +185,21 @@ const Hero = ({ onContactClick }) => {
   {/* IMAGE CARD */}
   <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden border-2 border-white/5 bg-slate-900 shadow-2xl relative group">
 
-    <img
-      src={getDirectLink(PERSONAL_INFO.profilePhoto)}
-      alt={PERSONAL_INFO.name}
-      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-      referrerPolicy="no-referrer"
-    />
+  <img
+    src={getDirectLink(PERSONAL_INFO.profilePhoto)}
+    alt={PERSONAL_INFO.name}
+    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out"
+    referrerPolicy="no-referrer"
+  />
 
-    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-80" />
+  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-80 pointer-events-none" />
 
-    <motion.div
-      animate={{ y: ['0%', '100%', '0%'] }}
-      transition={{ duration: 4, repeat: Infinity }}
-      className="absolute inset-x-0 h-px bg-blue-500/50 shadow-[0_0_15px_blue] z-20"
-    />
-  </div>
+  <motion.div
+    animate={{ y: ['0%', '100%', '0%'] }}
+    transition={{ duration: 4, repeat: Infinity }}
+    className="absolute inset-x-0 h-px bg-blue-500/50 shadow-[0_0_15px_blue] z-20"
+  />
+</div>
 
   {/* 🔥 SOCIAL ICONS (OUTSIDE now) */}
   <div className="absolute bottom-[-20px] left-[-20px] bg-slate-900/90 backdrop-blur-xl p-4 rounded-2xl shadow-xl border border-white/10 flex gap-4 z-30">
@@ -409,11 +409,12 @@ export default function App() {
           <main>
             <Hero onContactClick={() => setContactOpen(true)} />
             <About />
-            <Education />
+            
             <Skills />
             <Projects />
             <Certificates />
             <Achievements />
+            <Education />
 
             <section id="contact" className="py-32 px-10 bg-slate-950">
   <div className="max-w-screen-2xl mx-auto">
